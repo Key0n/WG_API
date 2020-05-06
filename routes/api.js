@@ -17,7 +17,7 @@ router.get('/info/:username', async function (req, res) {
     options.uri = BASE_URL + 'list/';
     options.qs.search = req.params.username;
 
-    request(options).then(async function (response) {
+    await request(options).then(async function (response) {
         for (const user of response.data) {
             if (user.nickname.toLowerCase() === req.params.username) {
                 options.uri = BASE_URL + 'achievements/';
@@ -25,13 +25,15 @@ router.get('/info/:username', async function (req, res) {
                 var userId = user.account_id
 
                 await request(options).then((respData) => {
-                    return res.json(respData.data[userId])
+                    res.json(respData.data[userId]);
                 });
             }
         }
+
     }).error(function (err) {
-        return res.json({error: 'Not fount'});
+        res.status(400).send();
     });
+    res.status(404).send();
 });
 
 module.exports = router;

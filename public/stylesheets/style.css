@@ -1,8 +1,27 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #222222;
+    color: rgba(253, 253, 253, 0.79);
+}
+
+h1 {
+    color: white;
 }
 
 a {
-  color: #00B7FF;
+    color: white;
+}
+
+th, td {
+    border: 1px solid grey;
+}
+
+#tables {
+    padding-top: 50px;
+}
+
+table {
+    display: inline;
+    margin-right:20px;
 }
